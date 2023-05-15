@@ -181,3 +181,96 @@ Example:
     ```bash
     $ git pull origin master
     ```
+
+- `git clone <url>`: Clones a remote repository to a local machine.
+  `git clone <url> .`: Clones into the current folder
+
+    Example:
+    ```bash
+    $ git clone https://github.com/user/repo.git
+    # Cloning into 'repo'...
+    # remote: Enumerating objects: 100, done.
+    # remote: Counting objects: 100% (100/100), done.
+    # remote: Compressing objects: 100% (80/80), done.
+    # Receiving objects: 100% (100/100), 10.00 KiB | 5.00 MiB/s, done.
+    # Resolving deltas: 100% (20/20), done.
+    ```
+
+##### Inspecting History
+
+- `git log`: Shows commit history.
+
+    Example:
+    ```bash
+    $ git log
+    # commit abcdef1
+    # Author: John Doe <john.doe@example.com>
+    # Date:   Tue May 1 12:00:00 2023 +0300
+    #
+    #     Added new feature
+    #
+    # commit 1234567
+    # Author: John Doe <john.doe@example.com>
+    # Date:   Mon Apr 30 09:30:00 2023 +0300
+    #
+    #     Updated README.md
+    ```
+
+- `git show <commit>`: Shows details of a specific commit.
+
+    Example:
+    ```bash
+    $ git show abcdef1
+    # commit abcdef1
+    # Author: John Doe <john.doe@example.com>
+    # Date:   Tue May 1 12:00:00 2023 +0300
+    #
+    #     Added new feature
+    #
+    # diff --git a/myfile.txt b/myfile.txt
+    # index 1234567..abcdefg 100644
+    # --- a/myfile.txt
+    # +++ b/myfile.txt
+    # @@ -1,3 +1,5 @@
+    #  Hello, world!
+    # +This is a new line.
+    #  Another line.
+    #  Goodbye!
+    ```
+
+- `git blame <file>`: Shows who modified each line of a file.
+
+    Example:
+    ```bash
+    $ git blame myfile.txt
+    abcdef1 (John Doe 2023-05-01 12:00:00 +0300 1) Hello, world!
+    abcdef1 (John Doe 2023-05-01 12:00:00 +0300 2) This is a new line.
+    1234567 (John Doe 2023-04-30 09:30:00 +0300 3) Another line.
+    abcdef1 (John Doe 2023-05-01 12:00:00 +0300 4) Goodbye!
+    ```
+
+##### Undoing Changes
+
+- `git revert <commit>`: Creates a new commit that undoes the changes made in a specific commit.
+
+    Example:
+    ```bash
+    $ git revert abcdef1
+    # [master 9876543] Revert "Added new feature"
+    #  1 file changed, 2 deletions(-)
+    ```
+
+- `git reset`: Resets the staging area and working directory to a previous commit.
+
+    Example:
+    ```bash
+    $ git reset --hard 1234567
+    # HEAD is now at 1234567 Updated README.md
+    ```
+
+- `git checkout -- <file>`: Discards changes made to a file in the working directory.
+
+    Example:
+    ```bash
+    $ git checkout -- myfile.txt
+    ```
