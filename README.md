@@ -274,3 +274,38 @@ Example:
     ```bash
     $ git checkout -- myfile.txt
     ```
+
+##### Working with Remotes
+
+- `git fetch <remote>`: Fetches the latest changes from a remote repository without merging them.
+
+    Example:
+    ```bash
+    $ git fetch origin
+    ```
+
+- `git remote -v`: Lists all the remote repositories and their URLs.
+
+    Example:
+    ```bash
+    $ git remote -v
+    # origin  https://github.com/user/repo.git (fetch)
+    # origin  https://github.com/user/repo.git (push)
+    ```
+
+- `git branch -r`: Lists remote branches.
+
+    Example:
+    ```bash
+    $ git branch -r
+    # origin/HEAD -> origin/master
+    # origin/feature/branch1
+    # origin/feature/branch2
+    ```
+
+- `git push -u <remote> <branch>`: Sets the upstream branch and pushes changes to a remote repository.
+
+    Example:
+    ```bash
+    $ git push -u origin master
+    ```
